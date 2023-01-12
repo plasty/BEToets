@@ -3,7 +3,7 @@ if(isset($_POST['submit'])){
     $kenteken = $_POST['kenteken'];
     $datum = $_POST['Datum'];
     $mankement = $_POST['Mankement'];
-    if (strlen($mankement) > 50) {
+    if (strlen($mankement) > 50) 
         echo "het nieuwe mankement is meer dan 50 tekens lang en is niet toegevoegd, probeer opnieuw";
     } else{
     $conn = mysqli_connect("localhost", "root", "", "DBToets");
