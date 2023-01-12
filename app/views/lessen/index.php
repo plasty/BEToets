@@ -15,7 +15,7 @@
 </table>
 
 <form action="" method="post">
-  kenteken: <input type="text" name="Kenteken"><br>
+  Kenteken: <input type="text" name="Kenteken"><br>
   Datum: <input type="text" name="Datum"><br>
   Mankement: <input type="text" name="Mankement"><br>
   <input type="submit" name="submit" value="Voer in">
