@@ -1,11 +1,3 @@
-<?php
-
-    $kenteken = $_POST['kenteken'];
-    $mankement = $_POST['mankement'];
-    $query = "INSERT INTO mankement (kenteken, mankement) VALUES ('$kenteken', '$mankement')";
-
-?>
-
 <h3><?= $data['title']; ?></h3>
 <h4><?= 'Naam instructeur: ' . $data['instructorName']; ?></h4>
 <h4><?= 'Email instructeur: ' . $data['Email']; ?></h4>
@@ -22,8 +14,9 @@
     </tbody>
 </table>
 
-<form action="submit.php" method="post">
-  Kenteken: <input type="text" name="kenteken"><br>
-  Mankement: <input type="text" name="mankement"><br>
-  <input type="submit" value="toevoegen mankement">
-</form> 
+<form action="" method="post">
+  kenteken: <input type="text" name="Kenteken"><br>
+  Datum: <input type="text" name="Datum"><br>
+  Mankement: <input type="text" name="Mankement"><br>
+  <input type="submit" name="submit" value="Voer in">
+</form>

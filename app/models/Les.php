@@ -55,10 +55,10 @@ class Les
 
     public function addTopic($post)
     {
-        $sql = "INSERT INTO Onderwerp (LesId
-                                      ,Onderwerp)
-                VALUES                (:LesId,
-                                       :topic);";
+        $sql = "INSERT INTO mankement (kenteken
+                                      ,menkement)
+                VALUES                (:kenteken,
+                                       :menkement);";
 
         $this->db->query($sql);
 

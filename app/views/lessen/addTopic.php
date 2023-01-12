@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+if(isset($_POST['submit'])){
+    $kenteken = $_POST['kenteken'];
+    $datum = $_POST['Datum'];
+    $mankement = $_POST['Mankement'];
+    //connect to the database
+    $conn = mysqli_connect("localhost", "root", "", "DBToets");
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h3><?= $data['title']; ?></h3>
-    <form action="<?= URLROOT; ?>/lessen/addTopic" method="post">
-        <label for="topic">Onderwerp</label><br>
-        <input type="text" name="topic" id="topic"><br>
-
-        <input type="hidden" name="id" value="<?= $data['id']; ?>">
-        <input type="submit" value="Toevoegen">
-    </form>
-</body>
-
-</html>
+    $query = "SELECT auto.kenteken FROM mankement INNER JOIN auto ON mankement.autoId = auto.id WHERE mankement.autoId = '$autoId'";
+    $query = "INSERT INTO mankement (Kenteken, Datum, Mankement) VALUES ('$autoId', '$datum', '$mankement')";
+    var_dump($query);
+    mysqli_query($conn, $query);
+    mysqli_close($conn);
+}
+?>
