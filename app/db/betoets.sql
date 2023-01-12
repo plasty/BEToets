@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 12 jan 2023 om 11:27
--- Serverversie: 5.7.36
--- PHP-versie: 8.1.10
+-- Gegenereerd op: 12 jan 2023 om 21:30
+-- Serverversie: 5.7.31
+-- PHP-versie: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `BEToets`
+-- Database: `betoets`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Auto`
+-- Tabelstructuur voor tabel `auto`
 --
 
-DROP TABLE IF EXISTS `Auto`;
-CREATE TABLE IF NOT EXISTS `Auto` (
+DROP TABLE IF EXISTS `auto`;
+CREATE TABLE IF NOT EXISTS `auto` (
   `Id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `Kenteken` varchar(10) NOT NULL,
   `Type` varchar(30) NOT NULL,
@@ -37,10 +37,10 @@ CREATE TABLE IF NOT EXISTS `Auto` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Auto`
+-- Gegevens worden geëxporteerd voor tabel `auto`
 --
 
-INSERT INTO `Auto` (`Id`, `Kenteken`, `Type`, `InstructeurId`) VALUES
+INSERT INTO `auto` (`Id`, `Kenteken`, `Type`, `InstructeurId`) VALUES
 (1, 'AU-67-IO', 'Golf', 3),
 (2, 'TH-78-KL', 'Ferrari', 2),
 (3, '90-KL-TR', 'Fiat 500', 4),
@@ -75,11 +75,11 @@ INSERT INTO `country` (`Id`, `Name`, `CapitalCity`, `Continent`, `Population`) V
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Instructeur`
+-- Tabelstructuur voor tabel `instructeur`
 --
 
-DROP TABLE IF EXISTS `Instructeur`;
-CREATE TABLE IF NOT EXISTS `Instructeur` (
+DROP TABLE IF EXISTS `instructeur`;
+CREATE TABLE IF NOT EXISTS `instructeur` (
   `Id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Email` varchar(255) NOT NULL,
   `Naam` varchar(255) NOT NULL,
@@ -87,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `Instructeur` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Instructeur`
+-- Gegevens worden geëxporteerd voor tabel `instructeur`
 --
 
-INSERT INTO `Instructeur` (`Id`, `Email`, `Naam`) VALUES
+INSERT INTO `instructeur` (`Id`, `Email`, `Naam`) VALUES
 (1, 'groen@mail.nl', 'Groen'),
 (2, 'konijn@google.com', 'Konijn'),
 (3, 'frasi@goolge.spail.nl', 'Frasi');
@@ -123,21 +123,21 @@ INSERT INTO `instructeur1` (`Id`, `Naam`, `Email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Leerling`
+-- Tabelstructuur voor tabel `leerling`
 --
 
-DROP TABLE IF EXISTS `Leerling`;
-CREATE TABLE IF NOT EXISTS `Leerling` (
+DROP TABLE IF EXISTS `leerling`;
+CREATE TABLE IF NOT EXISTS `leerling` (
   `Id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Naam` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Leerling`
+-- Gegevens worden geëxporteerd voor tabel `leerling`
 --
 
-INSERT INTO `Leerling` (`Id`, `Naam`) VALUES
+INSERT INTO `leerling` (`Id`, `Naam`) VALUES
 (3, 'Konijn'),
 (4, 'Slavink'),
 (6, 'Otto');
@@ -145,11 +145,11 @@ INSERT INTO `Leerling` (`Id`, `Naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Les`
+-- Tabelstructuur voor tabel `les`
 --
 
-DROP TABLE IF EXISTS `Les`;
-CREATE TABLE IF NOT EXISTS `Les` (
+DROP TABLE IF EXISTS `les`;
+CREATE TABLE IF NOT EXISTS `les` (
   `Id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
   `DatumTijd` datetime NOT NULL,
   `LeerlingId` mediumint(8) UNSIGNED NOT NULL,
@@ -160,10 +160,10 @@ CREATE TABLE IF NOT EXISTS `Les` (
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Les`
+-- Gegevens worden geëxporteerd voor tabel `les`
 --
 
-INSERT INTO `Les` (`Id`, `DatumTijd`, `LeerlingId`, `InstructeurId`) VALUES
+INSERT INTO `les` (`Id`, `DatumTijd`, `LeerlingId`, `InstructeurId`) VALUES
 (45, '2022-05-20 14:00:00', 3, 1),
 (46, '2022-05-20 10:00:00', 6, 3),
 (47, '2022-05-21 13:00:00', 4, 2),
@@ -177,11 +177,11 @@ INSERT INTO `Les` (`Id`, `DatumTijd`, `LeerlingId`, `InstructeurId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Mankement`
+-- Tabelstructuur voor tabel `mankement`
 --
 
-DROP TABLE IF EXISTS `Mankement`;
-CREATE TABLE IF NOT EXISTS `Mankement` (
+DROP TABLE IF EXISTS `mankement`;
+CREATE TABLE IF NOT EXISTS `mankement` (
   `Id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `AutoId` tinyint(4) NOT NULL,
   `Datum` date NOT NULL,
@@ -190,10 +190,10 @@ CREATE TABLE IF NOT EXISTS `Mankement` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Mankement`
+-- Gegevens worden geëxporteerd voor tabel `mankement`
 --
 
-INSERT INTO `Mankement` (`Id`, `AutoId`, `Datum`, `Mankement`) VALUES
+INSERT INTO `mankement` (`Id`, `AutoId`, `Datum`, `Mankement`) VALUES
 (1, 4, '2023-01-04', 'Profiel rechterband minder dan 2 mm'),
 (2, 2, '2023-01-02', 'Rechter achterlicht kapot'),
 (3, 1, '2023-01-02', 'Spiegel links afgebroken'),
@@ -203,11 +203,11 @@ INSERT INTO `Mankement` (`Id`, `AutoId`, `Datum`, `Mankement`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Onderwerp`
+-- Tabelstructuur voor tabel `onderwerp`
 --
 
-DROP TABLE IF EXISTS `Onderwerp`;
-CREATE TABLE IF NOT EXISTS `Onderwerp` (
+DROP TABLE IF EXISTS `onderwerp`;
+CREATE TABLE IF NOT EXISTS `onderwerp` (
   `Id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LesId` mediumint(8) UNSIGNED NOT NULL,
   `Onderwerp` varchar(255) NOT NULL,
@@ -216,10 +216,10 @@ CREATE TABLE IF NOT EXISTS `Onderwerp` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2352 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `Onderwerp`
+-- Gegevens worden geëxporteerd voor tabel `onderwerp`
 --
 
-INSERT INTO `Onderwerp` (`Id`, `LesId`, `Onderwerp`) VALUES
+INSERT INTO `onderwerp` (`Id`, `LesId`, `Onderwerp`) VALUES
 (2343, 45, 'File parkeren kan beter'),
 (2344, 46, 'Achteruit rijden'),
 (2345, 49, 'File parkeren'),
@@ -233,11 +233,11 @@ INSERT INTO `Onderwerp` (`Id`, `LesId`, `Onderwerp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `Opmerking`
+-- Tabelstructuur voor tabel `opmerking`
 --
 
-DROP TABLE IF EXISTS `Opmerking`;
-CREATE TABLE IF NOT EXISTS `Opmerking` (
+DROP TABLE IF EXISTS `opmerking`;
+CREATE TABLE IF NOT EXISTS `opmerking` (
   `Id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
   `LesId` mediumint(8) UNSIGNED NOT NULL,
   `Opmerking` varchar(255) NOT NULL,
@@ -250,23 +250,23 @@ CREATE TABLE IF NOT EXISTS `Opmerking` (
 --
 
 --
--- Beperkingen voor tabel `Les`
+-- Beperkingen voor tabel `les`
 --
-ALTER TABLE `Les`
-  ADD CONSTRAINT `FK_Les_InstructeurId_Instructeur_Id` FOREIGN KEY (`InstructeurId`) REFERENCES `Instructeur` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_Les_LeerlingId_Leerling_Id` FOREIGN KEY (`LeerlingId`) REFERENCES `Leerling` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `les`
+  ADD CONSTRAINT `FK_Les_InstructeurId_Instructeur_Id` FOREIGN KEY (`InstructeurId`) REFERENCES `instructeur` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_Les_LeerlingId_Leerling_Id` FOREIGN KEY (`LeerlingId`) REFERENCES `leerling` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Beperkingen voor tabel `Onderwerp`
+-- Beperkingen voor tabel `onderwerp`
 --
-ALTER TABLE `Onderwerp`
-  ADD CONSTRAINT `FK_Onderwerp_LesId_Les_Id` FOREIGN KEY (`LesId`) REFERENCES `Les` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `onderwerp`
+  ADD CONSTRAINT `FK_Onderwerp_LesId_Les_Id` FOREIGN KEY (`LesId`) REFERENCES `les` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Beperkingen voor tabel `Opmerking`
+-- Beperkingen voor tabel `opmerking`
 --
-ALTER TABLE `Opmerking`
-  ADD CONSTRAINT `FK_Opmerking_LesId_Les_Id` FOREIGN KEY (`LesId`) REFERENCES `Les` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `opmerking`
+  ADD CONSTRAINT `FK_Opmerking_LesId_Les_Id` FOREIGN KEY (`LesId`) REFERENCES `les` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
