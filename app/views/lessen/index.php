@@ -14,7 +14,7 @@
     </tbody>
 </table>
 
-<form action="" method="">
+<form action="" method="post">
   Kenteken: <input type="text" name="Kenteken"><br>
   Datum: <input type="text" name="Datum"><br>
   Mankement: <input type="text" name="Mankement"><br>
