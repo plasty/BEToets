@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $query = "INSERT INTO mankement (Kenteken, Datum, Mankement) VALUES ('$autoId', '$datum', '$mankement')";
     $kenteken = $row['kenteken'];
     mysqli_query($conn, $query);
-    mysqli_close($conn);
+    mysqli_close($conn)
 }
 }
 ?>
